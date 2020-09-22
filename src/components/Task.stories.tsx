@@ -1,18 +1,13 @@
 import React from "react";
 import Task from "./task";
 import { TaskInterfaceProp } from "../interfaces/task.interface";
-import { isTemplateLiteral } from "typescript";
 
 export default {
   component: Task,
   title: "Task",
 };
 
-const Template = (args: TaskInterfaceProp) => <Task {...args} />;
-
-interface demo {
-  args: TaskInterfaceProp;
-}
+const Template = (args: any) => <Task {...args} />;
 
 export const Default: any = Template.bind({});
 
@@ -39,6 +34,6 @@ export const Archived: any = Template.bind({});
 Archived.args = {
   task: {
     ...Default.args.task,
-    state: "TASK_PINNED",
+    state: "TASK_ARCHIVED",
   },
 };
