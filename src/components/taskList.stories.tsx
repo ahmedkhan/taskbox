@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import TaskList from "./taskList";
+import TaskList, { Tasksprops } from "./taskList";
 import * as TaskStories from "./Task.stories";
 
 export default {
@@ -13,7 +13,7 @@ export default {
   ],
 };
 
-const Template = (args: any) => <TaskList {...args} />;
+const Template = (args: Tasksprops) => <TaskList {...args} />;
 
 export const Default: any = Template.bind({});
 Default.args = {

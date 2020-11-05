@@ -2,21 +2,24 @@ import React from "react";
 import { TaskInterface } from "../interfaces/task.interface";
 import Task from "./task";
 
-interface props {
-  loading: boolean;
+export interface Tasksprops {
+  loading?: boolean;
   tasks: TaskInterface[];
-  onPinTask: () => void;
-  onArchiveTask: () => void;
+  onPinTask?: (id: string) => void;
+  onArchiveTask?: (id: string) => void;
+  onUnPinTask?: (id: string) => void;
 }
-const TaskList: React.FC<props> = ({
+const TaskList: React.FC<Tasksprops> = ({
   loading,
   tasks,
   onPinTask,
   onArchiveTask,
+  onUnPinTask,
 }) => {
   const events = {
     onPinTask,
     onArchiveTask,
+    onUnPinTask,
   };
 
   const LoadingRow = (
@@ -28,18 +31,9 @@ const TaskList: React.FC<props> = ({
     </div>
   );
   if (loading) {
-    return (
-      <div className="list-items">
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-      </div>
-    );
+    return <div className="list-items">{LoadingRow}</div>;
   }
-  if (tasks.length === 0) {
+  if (tasks?.length === 0) {
     return (
       <div className="list-items">
         <div className="wrapper-message">
@@ -54,12 +48,14 @@ const TaskList: React.FC<props> = ({
     ...tasks.filter((t) => t.state === "TASK_PINNED"),
     ...tasks.filter((t) => t.state !== "TASK_PINNED"),
   ];
+  console.log(tasksInOrder);
 
   return (
-    <div>
-      {tasks.map((task) => (
-        <Task key={task.id} task={task} {...events} />
-      ))}
+    <div className="max-w-xl mx-auto bg-gray-200 p-4 my-6 rounded-md ">
+      {!!tasksInOrder &&
+        tasksInOrder.map((task) => (
+          <Task key={task.id} task={task} {...events} />
+        ))}
     </div>
   );
 };
