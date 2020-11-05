@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 import InboxScreen from "./components/inboxScreen";
 import { Provider } from "react-redux";
