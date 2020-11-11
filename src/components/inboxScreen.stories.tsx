@@ -14,3 +14,4 @@ export default {
 const Template = (args: any) => <InboxScreen />;
 
 export const Default: any = Template.bind({});
+ 

@@ -1,5 +1,5 @@
 import React from "react";
-//interface
+
 import { TaskInterface } from "../interfaces/task.interface";
 
 interface props {
@@ -23,7 +23,7 @@ const Task: React.FC<props> = ({
       className={`list-item ${state} py-2 my-1 px-2 flex justify-between relative rounded ${
         state === "TASK_ARCHIVED" ? "bg-gray-100" : "bg-white"
       }`}
-    >
+    > 
       {state === "TASK_ARCHIVED" && (
         <div
           className="absolute w-full  -ml-2 mt-3  bg-gray-400"
@@ -51,28 +51,20 @@ const Task: React.FC<props> = ({
         </div>
       </div>
 
-      {/* <div
-        className="actions"
-        onClick={(event) => event.stopPropagation()}
-      ></div> */}
+      
       {state !== "TASK_ARCHIVED" ? (
         <span
-          className="text-blue-400 hover:text-blue-500 cursor-pointer relative mr-0 right-0 "
+          className="text-blue-400 hover:text-green-500 cursor-pointer relative mr-0 right-0 "
           onClick={() =>
             state !== "TASK_ARCHIVED" && !!onArchiveTask && onArchiveTask(id)
           }
         >
-          archive
+          Done...
         </span>
       ) : (
         "archived"
       )}
-      {/* {state !== "TASK_ARCHIVED" && (
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <a onClick={() => !!onPinTask && onPinTask(id)}>
-          <span>pin</span>
-        </a>
-      )} */}
+      
     </div>
   );
 };

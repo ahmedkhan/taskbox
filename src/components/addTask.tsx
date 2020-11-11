@@ -18,9 +18,9 @@ const AddTask = () => {
 
   return (
     <div>
-      <div className="max-w-xl mx-auto bg-blue-600 p-4 my-6 rounded-md ">
+      <div className="max-w-xl mx-auto bg-green-600 p-4 my-6 rounded-md ">
         <h1 className="text-center text-3xl capitalize font-semibold text-white ">
-          add task
+          Add task
         </h1>
         <div className="flex flex-col justify-center items-center ">
           <div>
@@ -36,10 +36,10 @@ const AddTask = () => {
             />
             {error && <p className="text-red-700 -my-1 text-sm">{error}</p>}
             <button
-              className="py-1 px-4 focus:outline-none bg-pink-600 text-white rounded my-3"
+              className="py-1 px-4 focus:outline-none bg-blue-600 text-white rounded my-3"
               onClick={handleSubmit}
             >
-              Submit
+              Add Task
             </button>
           </div>
         </div>

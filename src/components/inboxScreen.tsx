@@ -2,14 +2,13 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { pinTask, unPinTask, archive } from "../lib/redux";
 import { TaskInterface } from "../interfaces/task.interface";
-//components
 import AddTask from "./addTask";
 import TaskList from "./taskList";
 
 const InboxScreen = () => {
   const task = useSelector((state) => state);
   const dispatch = useDispatch();
-  // console.log(task);
+  
 
   const onPinTask = (id: string) => {
     dispatch(pinTask({ id: id }));
